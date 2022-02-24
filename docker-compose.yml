@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  web:
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+
+  db:
+    image: postgres:14
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
