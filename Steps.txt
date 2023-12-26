@@ -332,13 +332,22 @@ from django.contrib.auth.forms import UserChangeForm
 ./U.sh
 
 ===================================================================
-18-
+18- create this class in accounts/forms.py
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model = get_user_model()
+        fields = ('email', 'username',  )
+
+
 ===================================================================
-19-
+19- Git push in Terminal Commit message: "💠Create CustomUserCreationForm class into accounts/forms.py"
+./U.sh
+
 ===================================================================
 20-
 ===================================================================
-21-
+21- 
 ===================================================================
 22-
 ===================================================================
@@ -347,5 +356,7 @@ from django.contrib.auth.forms import UserChangeForm
 24-
 ===================================================================
 
+Git push in Terminal Commit message:
+./U.sh
 
 
