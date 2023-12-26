@@ -183,12 +183,22 @@ Output: will be like this
 
 ===================================================================
 2- Write in Terminal for checking image
+
+2-1
 docker images
 
 Output:
     REPOSITORY                            TAG       IMAGE ID       CREATED              SIZE
     2_django_docker_with_postgresql-web   latest    e7eeef5a2597   About a minute ago   1.04GB
 
+
+2-1
+docker ps -a
+
+Output:
+    CONTAINER ID   IMAGE                                 COMMAND                  CREATED          STATUS                      PORTS     NAMES
+    08ccf667d6f5   2_django_docker_with_postgresql-web   "python /code/manage…"   16 minutes ago   Exited (0) 12 minutes ago             2_django_docker_with_postgresql-web-1
+    17c267474e1b   postgres:14                           "docker-entrypoint.s…"   16 minutes ago   Exited (0) 12 minutes ago             2_django_docker_with_postgresql-db-1
 
 
 ===================================================================
@@ -207,10 +217,19 @@ Output:
     ]
 } 
 
+******************************************
+    ATTENTION: We don't migrate yet
+******************************************
+
 
 ===================================================================
-4-
+4- Write in another Terminal +(web container should be started ) if was stop, write -> docker start 2_django_docker_with_postgresql-web-1
+docker compose exec web python manage.py startapp accounts
 
+Output:
+    accounts directory will create in current directory
+
+    
 ===================================================================
 5-
 ===================================================================
