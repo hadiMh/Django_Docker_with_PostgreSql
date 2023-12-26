@@ -487,11 +487,20 @@ urlpatterns = [
 ]
 
 ===================================================================
-32-
+32- create urls.py file in pages directory
+urls.py
+
 ===================================================================
-33-
+33- import this in pages/urls.py
+from django.urls import path
+
 ===================================================================
-34-
+34- add these into urlpatterns into pages/urls.py
+urlpatterns = [
+    path('', views.HomePageView.as_view(), name='home'),
+    path('aboutus/', views.AboutUsPageView.as_view(), name='aboutus'),
+]
+
 ===================================================================
 35-
 ===================================================================
