@@ -237,13 +237,19 @@ Output:
 
 
 ===================================================================
-6- Git Push in Terminal Commit message: 💠 add accounts to INSTALLED_APPS in config/settings.py
+6- Git push in Terminal Commit message: 💠 add accounts to INSTALLED_APPS in config/settings.py
 ./U.sh
 
 ===================================================================
-7-
+7- import this to accounts/models.py
+from django.contrib.auth.models import AbstractUser
+
+
 ===================================================================
-8-
+8- Git push in Terminal Commit message: 💠 import AbstractUser module in accounts/models.py
+./U.sh
+
+
 ===================================================================
 9-
 ===================================================================
