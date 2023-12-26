@@ -366,6 +366,15 @@ from django.contrib.auth.admin import UserAdmin
 ./U.sh
 
 ===================================================================
+26- import this in accounts/admin.py
+from .models import CustomUser
+
+===================================================================
+21- Git push in Terminal Commit message: "💠Import this module into accounts/admin.py"
+./U.sh
+
+
+===================================================================
 Git push in Terminal Commit message:
 ./U.sh
 
