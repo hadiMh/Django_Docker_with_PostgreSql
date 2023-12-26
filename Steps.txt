@@ -229,11 +229,17 @@ docker compose exec web python manage.py startapp accounts
 Output:
     accounts directory will create in current directory
 
-    
+
 ===================================================================
-5-
+5- add this to config/settings.py > INSTALLED_APP = ['accounts',]
+...
+'accounts',
+
+
 ===================================================================
-6-
+6- Git Push in Terminal Commit message: 💠 add accounts to INSTALLED_APPS in config/settings.py
+./U.sh
+
 ===================================================================
 7-
 ===================================================================
