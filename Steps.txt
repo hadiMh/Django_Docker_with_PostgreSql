@@ -375,6 +375,37 @@ from .models import CustomUser
 
 
 ===================================================================
+22- Create this class in accounts/admin.py
+class CustomUserAdmin(UserAdmin):
+    model = CustomUser
+    
+===================================================================
+23- import these in accounts/admin.py
+from .forms import CustomUserCreationForm
+from .forms import CustomUserChangeForm
+
+===================================================================
+24- add these into class CustomUserAdmin in accounts/admin.py
+class CustomUserAdmin(UserAdmin):
+    ...
+    add_form = CustomUserCreationForm
+    form = CustomUserChangeForm
+    list_display = ('email', 'username',  )
+    
+===================================================================
+25- add this above CustomUserAdmin class in accounts/admin.py
+
+@admin.register(CustomUser)
+class CustomUserAdmin(UserAdmin):
+    ...
+
+
+===================================================================
+26- Git push in Terminal Commit message: 💠Cunfig somthings for admin panel Django into accounts/admin.py
+./U.sh
+===================================================================
+27- 
+
 Git push in Terminal Commit message:
 ./U.sh
 
