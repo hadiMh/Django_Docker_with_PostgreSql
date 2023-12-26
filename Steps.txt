@@ -1,6 +1,5 @@
 My system is "Ubuntu 22.04.3 LTS"
 
-
 ===================================================================
 1- We create a fake virtual environment. so write in Terminal
 pipenv install 
@@ -38,8 +37,6 @@ Output:
     To activate this project's virtualenv, run pipenv shell.
     Alternatively, run a command inside the virtualenv with pipenv run.
 
-
-
 ===================================================================
 2- press "Ctrl + Shift + P" key and write
 python: select interpreter
@@ -47,8 +44,6 @@ python: select interpreter
 ===================================================================
 3- Click on this
 python3.10.12('2_Django_Docker_with_PostgreSql...')~/.local/... PipEnv
-
-
 
 ===================================================================
 4- Write in Terminal in current directory project + (VPN must be activated)
@@ -230,7 +225,6 @@ Output: will be like this
     2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.371 UTC [62] LOG:  database system was shut down at 2023-12-26 10:39:51 UTC
     2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.382 UTC [1] LOG:  database system is ready to accept connections
 
-
 ===================================================================
 5- for Check images write in Terminal
 
@@ -241,7 +235,6 @@ Output:
     REPOSITORY                            TAG       IMAGE ID       CREATED              SIZE
     2_django_docker_with_postgresql-web   latest    e7eeef5a2597   About a minute ago   1.04GB
 
-
 5-1
 docker ps -a
 
@@ -249,7 +242,6 @@ Output:
     CONTAINER ID   IMAGE                                 COMMAND                  CREATED          STATUS                      PORTS     NAMES
     08ccf667d6f5   2_django_docker_with_postgresql-web   "python /code/manage…"   16 minutes ago   Exited (0) 12 minutes ago             2_django_docker_with_postgresql-web-1
     17c267474e1b   postgres:14                           "docker-entrypoint.s…"   16 minutes ago   Exited (0) 12 minutes ago             2_django_docker_with_postgresql-db-1
-
 
 ===================================================================
 6- Install this Extensions from .vscode/extensions.json
@@ -266,7 +258,6 @@ Output:
         "davidanson.vscode-markdownlint"
     ]
 } 
-
 ************************************************************************************
 ************************************************************************************
 ************************************************************************************
@@ -276,8 +267,6 @@ Output:
 ************************************************************************************
 ************************************************************************************
 ************************************************************************************
-
-
 ===================================================================
 7- Write in another Terminal +(web container should be started ) if was stop, write -> docker start 2_django_docker_with_postgresql-web-1
 docker compose exec web python manage.py startapp accounts
@@ -285,12 +274,10 @@ docker compose exec web python manage.py startapp accounts
 Output:
     accounts directory will create in current directory
 
-
 ===================================================================
 8- add this to config/settings.py > INSTALLED_APP = ['accounts',]
 ...
 'accounts',
-
 
 ===================================================================
 9- import this to accounts/models.py
@@ -301,7 +288,6 @@ from django.contrib.auth.models import AbstractUser
 class CustomUser(AbstractUser):
     pass
 
-
 ===================================================================
 11- create this file in accounts
 forms.py
@@ -311,8 +297,6 @@ forms.py
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth import get_user_model
-
-
 
 ===================================================================
 13- create this class in accounts/forms.py
@@ -425,7 +409,6 @@ Output:
       Applying admin.0003_logentry_add_action_flag_choices... OK
       Applying sessions.0001_initial... OK
 
-
 ===================================================================
 25- Write in Terminal, Thank create simple username and password for development mode. I use user=sina pass=123
 docker compose exec web python manage.py createsuperuser
@@ -441,36 +424,29 @@ Ouput:
     Bypass password validation and create user anyway? [y/N]: y
     Superuser created successfully.
 
-
 ===================================================================
 26- Write in Terminal (If are in Iran run VPN!)
 docker compose up
-
 
 ===================================================================
 21- check this link, will be shows 
 http://127.0.0.1:8000/admin/login/?next=/admin/
 
-
 ===================================================================
 22- Check this link, should be shows email and username
 http://127.0.0.1:8000/admin/accounts/customuser/
-
 
 ===================================================================
 23- Write in Terminal  
 docker compose exec web python manage.py startapp pages
 
-
 ===================================================================
 24- Add this app to config/settings.py > INSTALLED_APP 
 'pages',
 
-
 ===================================================================
 25- import this to pages/views.py
 from django.views.generic import TemplateView
-
 
 ===================================================================
 26- Create these two classes in pages/views.py
@@ -489,25 +465,38 @@ templates/home.html
 
 ===================================================================
 28- add this in config/settings.py 
-
 TEMPLATES = [
 ...
         'DIRS': [str(BASE_DIR.joinpath('templates'))],
 ...
 ]
 
-
 ===================================================================
 29- create in pages > templates/pages/aboutus.html
 templates/pages/aboutus.html
 
+===================================================================
+30- import this into config/urls.py
+from django.urls import include
 
 ===================================================================
-30-
+31- add this into urlpatterns > config/urls.py
+urlpatterns = [
+    ...
+    path('', include('pages.urls')),
+]
+
 ===================================================================
-31-
+32-
 ===================================================================
+33-
 ===================================================================
+34-
 ===================================================================
+35-
+===================================================================
+36-
+===================================================================
+
 
 

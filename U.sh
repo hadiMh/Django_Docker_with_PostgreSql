@@ -1,6 +1,6 @@
 #!/bin/bash
 git add .
-git commit -m "💠 Create two html files home and about us"
+git commit -m "💠 config url route to pages urls.py "
 git push -u origin sinaLaleh
 
 # with ScreenShot for showing demo png file
