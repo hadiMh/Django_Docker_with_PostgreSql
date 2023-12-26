@@ -267,9 +267,15 @@ Output:
     ]
 } 
 
-******************************************
-    ATTENTION: We don't migrate yet
-******************************************
+************************************************************************************
+************************************************************************************
+************************************************************************************
+************************************************************************************
+                     ATTENTION: We don't migrate yet
+************************************************************************************
+************************************************************************************
+************************************************************************************
+************************************************************************************
 
 
 ===================================================================
@@ -287,105 +293,69 @@ Output:
 
 
 ===================================================================
-9- Git push in Terminal Commit message: 💠 add accounts to INSTALLED_APPS in config/settings.py
-./U.sh
-===================================================================
-10- import this to accounts/models.py
+9- import this to accounts/models.py
 from django.contrib.auth.models import AbstractUser
-
-
 ===================================================================
-11- Git push in Terminal Commit message: 💠 import AbstractUser module in accounts/models.py
-./U.sh
-===================================================================
-12- Create new class in accounts/models.py
+10- Create new class in accounts/models.py
 
 class CustomUser(AbstractUser):
     pass
 
 
-
 ===================================================================
-13- Git push in Terminal Commit message: 💠 rechange all steps
-./U.sh
-===================================================================
-14- create this file in accounts
+11- create this file in accounts
 forms.py
 
 ===================================================================
-15- Git push in Terminal Commit message: "💠Create forms.py file in accounts directory"
-./U.sh
-===================================================================
-16- import these to accounts/forms.py
+12- import these to accounts/forms.py
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth import get_user_model
+
 
 
 ===================================================================
-17- Git push in Terminal Commit message: "💠Import these to in accounts/forms.py"
-./U.sh
-===================================================================
-18- create this class in accounts/forms.py
+13- create this class in accounts/forms.py
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = get_user_model()
         fields = ('email', 'username',  )
 
-
 ===================================================================
-19- Git push in Terminal Commit message: "💠Create CustomUserCreationForm class into accounts/forms.py"
-./U.sh
-===================================================================
-20- add this to end of config/settings.py
+14- add this to end of config/settings.py
 ...
 # Accounts config
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 ===================================================================
-21- Git push in Terminal Commit message: "💠Add Setting into config/settings.py"
-./U.sh
-===================================================================
-22- create this class in accounts/forms.py
+15- create this class in accounts/forms.py
 ...
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = get_user_model()
         fields = ('email', 'username',  )
-        
 
 ===================================================================
-23- Git push in Terminal Commit message: "💠Create CustomUserChangeForm class into accounts/forms.py"
-./U.sh
-===================================================================
-24- import this to accounts/admin.py
+16- import this to accounts/admin.py
 from django.contrib.auth.admin import UserAdmin
 
 ===================================================================
-25-Git push in Terminal Commit message: "💠Import this module into accounts/admin.py"
-./U.sh
-
-===================================================================
-26- import this in accounts/admin.py
+17- import this in accounts/admin.py
 from .models import CustomUser
 
 ===================================================================
-21- Git push in Terminal Commit message: "💠Import this module into accounts/admin.py"
-./U.sh
-
-
-===================================================================
-22- Create this class in accounts/admin.py
+18- Create this class in accounts/admin.py
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
-    
+
 ===================================================================
-23- import these in accounts/admin.py
+19- import these in accounts/admin.py
 from .forms import CustomUserCreationForm
 from .forms import CustomUserChangeForm
 
 ===================================================================
-24- add these into class CustomUserAdmin in accounts/admin.py
+20- add these into class CustomUserAdmin in accounts/admin.py
 class CustomUserAdmin(UserAdmin):
     ...
     add_form = CustomUserCreationForm
@@ -393,18 +363,88 @@ class CustomUserAdmin(UserAdmin):
     list_display = ('email', 'username',  )
     
 ===================================================================
-25- add this above CustomUserAdmin class in accounts/admin.py
-
+21- add this above CustomUserAdmin class in accounts/admin.py
 @admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
     ...
 
+************************************************************************************
+************************************************************************************
+************************************************************************************
+************************************************************************************
+                          NOW We Migrate for Database
+************************************************************************************
+************************************************************************************
+************************************************************************************
+************************************************************************************
 
 ===================================================================
-26- Git push in Terminal Commit message: 💠Cunfig somthings for admin panel Django into accounts/admin.py
-./U.sh
+22- in Terminal write this for make migrations +(your web container should be start before this command)
+docker compose exec web python manage.py makemigrations 
+
+Ouput: Like this 
+    /usr/local/lib/python3.9/site-packages/django/core/management/commands/makemigrations.py:105: RuntimeWarning: Got an error checking a consistent migration history performed for database connection 'default': could not translate host name "db" to address: Temporary failure in name resolution
+
+    warnings.warn(
+    Migrations for 'accounts':
+    accounts/migrations/0001_initial.py
+        - Create model CustomUser
+
+===================================================================
+23- in Terminal sure that Database container is running by this command, maybe your database name is different than me
+docker start 2_django_docker_with_postgresql-db-1
+
+Output: like this
+    2_django_docker_with_postgresql-db-1
+
+===================================================================
+24- in Terminal write this for make migrations +(your web container should be start before this command)
+docker compose exec web python manage.py migrate 
+
+Output:
+    Operations to perform:
+      Apply all migrations: accounts, admin, auth, contenttypes, sessions
+    Running migrations:
+      Applying contenttypes.0001_initial... OK
+      Applying contenttypes.0002_remove_content_type_name... OK
+      Applying auth.0001_initial... OK
+      Applying auth.0002_alter_permission_name_max_length... OK
+      Applying auth.0003_alter_user_email_max_length... OK
+      Applying auth.0004_alter_user_username_opts... OK
+      Applying auth.0005_alter_user_last_login_null... OK
+      Applying auth.0006_require_contenttypes_0002... OK
+      Applying auth.0007_alter_validators_add_error_messages... OK
+      Applying auth.0008_alter_user_username_max_length... OK
+      Applying auth.0009_alter_user_last_name_max_length... OK
+      Applying auth.0010_alter_group_name_max_length... OK
+      Applying auth.0011_update_proxy_permissions... OK
+      Applying auth.0012_alter_user_first_name_max_length... OK
+      Applying accounts.0001_initial... OK
+      Applying admin.0001_initial... OK
+      Applying admin.0002_logentry_remove_auto_add... OK
+      Applying admin.0003_logentry_add_action_flag_choices... OK
+      Applying sessions.0001_initial... OK
+
+      
+===================================================================
+25-
+===================================================================
+26- 
+===================================================================
+21- 
+===================================================================
+22- 
+===================================================================
+23- 
+===================================================================
+24- 
+===================================================================
+25- 
+===================================================================
+26- 
 ===================================================================
 27- 
+
 
 Git push in Terminal Commit message:
 ./U.sh
