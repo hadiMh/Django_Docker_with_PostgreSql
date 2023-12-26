@@ -346,9 +346,17 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 21- Git push in Terminal Commit message: "💠Add Setting into config/settings.py"
 ./U.sh
 ===================================================================
-22-
+22- create this class in accounts/forms.py
+...
+class CustomUserChangeForm(UserChangeForm):
+    class Meta:
+        model = get_user_model()
+        fields = ('email', 'username',  )
+        
+
 ===================================================================
-23-
+23- Git push in Terminal Commit message: "💠Create CustomUserChangeForm class into accounts/forms.py"
+./U.sh
 ===================================================================
 24-
 ===================================================================
