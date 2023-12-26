@@ -322,9 +322,15 @@ forms.py
 ./U.sh
 
 ===================================================================
-16- 
+16- import these to accounts/forms.py
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserChangeForm
+
+
 ===================================================================
-17-
+17- Git push in Terminal Commit message: "💠Import these to in accounts/forms.py"
+./U.sh
+
 ===================================================================
 18-
 ===================================================================
