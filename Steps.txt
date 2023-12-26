@@ -289,7 +289,6 @@ Output:
 ===================================================================
 9- Git push in Terminal Commit message: 💠 add accounts to INSTALLED_APPS in config/settings.py
 ./U.sh
-
 ===================================================================
 10- import this to accounts/models.py
 from django.contrib.auth.models import AbstractUser
@@ -298,8 +297,6 @@ from django.contrib.auth.models import AbstractUser
 ===================================================================
 11- Git push in Terminal Commit message: 💠 import AbstractUser module in accounts/models.py
 ./U.sh
-
-
 ===================================================================
 12- Create new class in accounts/models.py
 
@@ -311,8 +308,6 @@ class CustomUser(AbstractUser):
 ===================================================================
 13- Git push in Terminal Commit message: 💠 rechange all steps
 ./U.sh
-
-
 ===================================================================
 14- create this file in accounts
 forms.py
@@ -320,7 +315,6 @@ forms.py
 ===================================================================
 15- Git push in Terminal Commit message: "💠Create forms.py file in accounts directory"
 ./U.sh
-
 ===================================================================
 16- import these to accounts/forms.py
 from django.contrib.auth.forms import UserCreationForm
@@ -330,7 +324,6 @@ from django.contrib.auth.forms import UserChangeForm
 ===================================================================
 17- Git push in Terminal Commit message: "💠Import these to in accounts/forms.py"
 ./U.sh
-
 ===================================================================
 18- create this class in accounts/forms.py
 
@@ -343,11 +336,15 @@ class CustomUserCreationForm(UserCreationForm):
 ===================================================================
 19- Git push in Terminal Commit message: "💠Create CustomUserCreationForm class into accounts/forms.py"
 ./U.sh
+===================================================================
+20- add this to end of config/settings.py
+...
+# Accounts config
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 ===================================================================
-20-
-===================================================================
-21- 
+21- Git push in Terminal Commit message: "💠Add Setting into config/settings.py"
+./U.sh
 ===================================================================
 22-
 ===================================================================
