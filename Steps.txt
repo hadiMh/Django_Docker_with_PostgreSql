@@ -2,7 +2,56 @@ My system is "Ubuntu 22.04.3 LTS"
 
 
 ===================================================================
-1- Write in Terminal in current directory project + (VPN must be activated)
+1- We create a fake virtual environment. so write in Terminal
+pipenv install 
+
+
+Output:
+    Creating a virtualenv for this project...
+    Pipfile: /home/sina/01-Repo/Tests/2_Django_Docker_with_PostgreSql/Pipfile
+    Using default python from /usr/bin/python3 (3.10.12) to create virtualenv...
+    ⠼ Creating virtual environment...created virtual environment CPython3.10.12.final.0-64 in 316ms
+    creator CPython3Posix(dest=/home/sina/.local/share/virtualenvs/2_Django_Docker_with_PostgreSql-8ahpN8Lk, clear=False, no_vcs_ignore=False, global=False)
+    seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/sina/.local/share/virtualenv)
+        added seed packages: pip==23.3.2, setuptools==69.0.3, wheel==0.42.0
+    activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+
+    ✔ Successfully created virtual environment!
+    Virtualenv location: /home/sina/.local/share/virtualenvs/2_Django_Docker_with_PostgreSql-8ahpN8Lk
+    requirements.txt found in /home/sina/01-Repo/Tests/2_Django_Docker_with_PostgreSql instead of Pipfile! Converting...
+    ⠧ Importing requirements...WARNING:pipenv.patched.pip._vendor.urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='pypi.org', port=443): Read timed out. (read timeout=0.3)")': /pypi/asgiref/json
+    ⠧ Importing requirements...WARNING:pipenv.patched.pip._vendor.urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='pypi.org', port=443): Read timed out. (read timeout=0.3)")': /pypi/django/json
+    ⠧ Importing requirements...WARNING:pipenv.patched.pip._vendor.urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='pypi.org', port=443): Read timed out. (read timeout=0.3)")': /pypi/psycopg2-binary/json
+    ⠇ Importing requirements...WARNING:pipenv.patched.pip._vendor.urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='pypi.org', port=443): Read timed out. (read timeout=0.3)")': /pypi/sqlparse/json
+    ⠇ Importing requirements...WARNING:pipenv.patched.pip._vendor.urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='pypi.org', port=443): Read timed out. (read timeout=0.3)")': /pypi/tzdata/json
+    ✔ Success!
+    Warning: Your Pipfile now contains pinned versions, if your requirements.txt did. 
+    We recommend updating your Pipfile to specify the "*" version, instead.
+    Pipfile.lock not found, creating...
+    Locking [packages] dependencies...
+    Building requirements...
+    Resolving dependencies...
+    ✔ Success!
+    Locking [dev-packages] dependencies...
+    Updated Pipfile.lock (029405c39080737a27489b44f27ac147bc195047f9ad6f9994fb52d3c4022944)!
+    Installing dependencies from Pipfile.lock (022944)...
+    To activate this project's virtualenv, run pipenv shell.
+    Alternatively, run a command inside the virtualenv with pipenv run.
+
+
+
+===================================================================
+2- press "Ctrl + Shift + P" key and write
+python: select interpreter
+
+===================================================================
+3- Click on this
+python3.10.12('2_Django_Docker_with_PostgreSql...')~/.local/... PipEnv
+
+
+
+===================================================================
+4- Write in Terminal in current directory project + (VPN must be activated)
 docker compose up --build
 
 Output: will be like this
@@ -181,10 +230,11 @@ Output: will be like this
     2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.371 UTC [62] LOG:  database system was shut down at 2023-12-26 10:39:51 UTC
     2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.382 UTC [1] LOG:  database system is ready to accept connections
 
-===================================================================
-2- Write in Terminal for checking image
 
-2-1
+===================================================================
+5- for Check images write in Terminal
+
+5-1
 docker images
 
 Output:
@@ -192,7 +242,7 @@ Output:
     2_django_docker_with_postgresql-web   latest    e7eeef5a2597   About a minute ago   1.04GB
 
 
-2-1
+5-1
 docker ps -a
 
 Output:
@@ -202,7 +252,7 @@ Output:
 
 
 ===================================================================
-3- Install this Extensions from .vscode/extensions.json
+6- Install this Extensions from .vscode/extensions.json
 {
     "recommendations": [
         "beardedbear.beardedicons",
@@ -223,7 +273,7 @@ Output:
 
 
 ===================================================================
-4- Write in another Terminal +(web container should be started ) if was stop, write -> docker start 2_django_docker_with_postgresql-web-1
+7- Write in another Terminal +(web container should be started ) if was stop, write -> docker start 2_django_docker_with_postgresql-web-1
 docker compose exec web python manage.py startapp accounts
 
 Output:
@@ -231,33 +281,33 @@ Output:
 
 
 ===================================================================
-5- add this to config/settings.py > INSTALLED_APP = ['accounts',]
+8- add this to config/settings.py > INSTALLED_APP = ['accounts',]
 ...
 'accounts',
 
 
 ===================================================================
-6- Git push in Terminal Commit message: 💠 add accounts to INSTALLED_APPS in config/settings.py
+9- Git push in Terminal Commit message: 💠 add accounts to INSTALLED_APPS in config/settings.py
 ./U.sh
 
 ===================================================================
-7- import this to accounts/models.py
+10- import this to accounts/models.py
 from django.contrib.auth.models import AbstractUser
 
 
 ===================================================================
-8- Git push in Terminal Commit message: 💠 import AbstractUser module in accounts/models.py
+11- Git push in Terminal Commit message: 💠 import AbstractUser module in accounts/models.py
 ./U.sh
 
 
 ===================================================================
-9-
-===================================================================
-10-
-===================================================================
-11-
-===================================================================
-12-
+12- Create new class in accounts/models.py
+
+class CustomUser(AbstractUser):
+    pass
+
+
+
 ===================================================================
 13-
 ===================================================================
@@ -270,6 +320,18 @@ from django.contrib.auth.models import AbstractUser
 17-
 ===================================================================
 18-
+===================================================================
+19-
+===================================================================
+20-
+===================================================================
+21-
+===================================================================
+22-
+===================================================================
+23-
+===================================================================
+24-
 ===================================================================
 
 

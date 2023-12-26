@@ -1,6 +1,6 @@
 #!/bin/bash
 git add .
-git commit -m " 💠 import AbstractUser module in accounts/models.py "
+git commit -m " 💠 rechange all steps "
 git push -u origin sinaLaleh
 
 # with ScreenShot for showing demo png file
