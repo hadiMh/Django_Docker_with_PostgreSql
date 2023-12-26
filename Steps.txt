@@ -1,2 +1,245 @@
+My system is "Ubuntu 22.04.3 LTS"
 
-1-
+
+===================================================================
+1- Write in Terminal in current directory project + (VPN must be activated)
+docker compose up --build
+
+Output: will be like this
+    [+] Running 15/2
+    ✔ db 14 layers [⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]      0B/0B      Pulled                                                                                                           384.6s 
+                                                                                                                                                                            
+    [+] Building 44.5s (11/11) FINISHED                                                                                                                      docker:rootless
+    => [web internal] load build definition from Dockerfile                                                                                                            0.1s
+    => => transferring dockerfile: 204B                                                                                                                                0.0s
+    => [web internal] load .dockerignore                                                                                                                               0.1s
+    => => transferring context: 2B                                                                                                                                     0.0s
+    => [web internal] load metadata for docker.io/library/python:3.9                                                                                                   4.5s
+    => [web auth] library/python:pull token for registry-1.docker.io                                                                                                   0.0s
+    => [web 1/5] FROM docker.io/library/python:3.9@sha256:30678bb79d9eeaf98ec0ce83cdcd4d6f5301484ef86873a711e69df2ca77e8ac                                            16.0s
+    => => resolve docker.io/library/python:3.9@sha256:30678bb79d9eeaf98ec0ce83cdcd4d6f5301484ef86873a711e69df2ca77e8ac                                                 0.1s
+    => => sha256:30678bb79d9eeaf98ec0ce83cdcd4d6f5301484ef86873a711e69df2ca77e8ac 1.86kB / 1.86kB                                                                      0.0s
+    => => sha256:edb6b76b75bad04bef16fec848f73e45c0b4522d77cf389baff429081157fa1a 7.51kB / 7.51kB                                                                      0.0s
+    => => sha256:62072a293549fb69041a44936a3ea5cebcbc7195cc532e509fe940175b2f5430 2.01kB / 2.01kB                                                                      0.0s
+    => => sha256:cd0903c43c21ba3625df928c05a81e32d2d5dc44214e326fafca1957dcdfbfba 15.82MB / 15.82MB                                                                   14.5s
+    => => sha256:b85288e0cb16dfd5a0d717d65e0cba46d00c33ce88b772a2b06a5899f88ed0be 244B / 244B                                                                          2.0s
+    => => sha256:7a97f6368ea64ce28aa5df12c8a292db5f729f0858dd112579938b295b0c861c 2.85MB / 2.85MB                                                                      5.4s
+    => => extracting sha256:cd0903c43c21ba3625df928c05a81e32d2d5dc44214e326fafca1957dcdfbfba                                                                           0.3s
+    => => extracting sha256:b85288e0cb16dfd5a0d717d65e0cba46d00c33ce88b772a2b06a5899f88ed0be                                                                           0.0s
+    => => extracting sha256:7a97f6368ea64ce28aa5df12c8a292db5f729f0858dd112579938b295b0c861c                                                                           0.2s
+    => [web internal] load build context                                                                                                                               0.1s
+    => => transferring context: 53.94kB                                                                                                                                0.0s
+    => [web 2/5] WORKDIR /code                                                                                                                                         0.1s
+    => [web 3/5] COPY requirements.txt /code/                                                                                                                          0.1s
+    => [web 4/5] RUN pip install -r requirements.txt                                                                                                                  21.5s
+    => [web 5/5] COPY . /code/                                                                                                                                         0.2s
+    => [web] exporting to image                                                                                                                                        1.9s 
+    => => exporting layers                                                                                                                                             1.9s 
+    => => writing image sha256:e7eeef5a259733618ba35e90ecc7780131ab69ff1be30660ac83cefb8399d80d                                                                        0.0s 
+    => => naming to docker.io/library/2_django_docker_with_postgresql-web                                                                                              0.0s
+    [+] Running 3/3
+    ✔ Network 2_django_docker_with_postgresql_default  Created                                                                                                         0.1s 
+    ✔ Container 2_django_docker_with_postgresql-db-1   Created                                                                                                         0.1s 
+    ✔ Container 2_django_docker_with_postgresql-web-1  Created                                                                                                         0.1s 
+    Attaching to 2_django_docker_with_postgresql-db-1, 2_django_docker_with_postgresql-web-1
+    2_django_docker_with_postgresql-db-1   | ********************************************************************************
+    2_django_docker_with_postgresql-db-1   | WARNING: POSTGRES_HOST_AUTH_METHOD has been set to "trust". This will allow
+    2_django_docker_with_postgresql-db-1   |          anyone with access to the Postgres port to access your database without
+    2_django_docker_with_postgresql-db-1   |          a password, even if POSTGRES_PASSWORD is set. See PostgreSQL
+    2_django_docker_with_postgresql-db-1   |          documentation about "trust":
+    2_django_docker_with_postgresql-db-1   |          https://www.postgresql.org/docs/current/auth-trust.html
+    2_django_docker_with_postgresql-db-1   |          In Docker's default configuration, this is effectively any other
+    2_django_docker_with_postgresql-db-1   |          container on the same system.
+    2_django_docker_with_postgresql-db-1   | 
+    2_django_docker_with_postgresql-db-1   |          It is not recommended to use POSTGRES_HOST_AUTH_METHOD=trust. Replace
+    2_django_docker_with_postgresql-db-1   |          it with "-e POSTGRES_PASSWORD=password" instead to set a password in
+    2_django_docker_with_postgresql-db-1   |          "docker run".
+    2_django_docker_with_postgresql-db-1   | ********************************************************************************
+    2_django_docker_with_postgresql-db-1   | The files belonging to this database system will be owned by user "postgres".
+    2_django_docker_with_postgresql-db-1   | This user must also own the server process.
+    2_django_docker_with_postgresql-db-1   | 
+    2_django_docker_with_postgresql-db-1   | The database cluster will be initialized with locale "en_US.utf8".
+    2_django_docker_with_postgresql-db-1   | The default database encoding has accordingly been set to "UTF8".
+    2_django_docker_with_postgresql-db-1   | The default text search configuration will be set to "english".
+    2_django_docker_with_postgresql-db-1   | 
+    2_django_docker_with_postgresql-db-1   | Data page checksums are disabled.
+    2_django_docker_with_postgresql-db-1   | 
+    2_django_docker_with_postgresql-db-1   | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+    2_django_docker_with_postgresql-db-1   | creating subdirectories ... ok
+    2_django_docker_with_postgresql-db-1   | selecting dynamic shared memory implementation ... posix
+    2_django_docker_with_postgresql-db-1   | selecting default max_connections ... 100
+    2_django_docker_with_postgresql-db-1   | selecting default shared_buffers ... 128MB
+    2_django_docker_with_postgresql-db-1   | selecting default time zone ... Etc/UTC
+    2_django_docker_with_postgresql-db-1   | creating configuration files ... ok
+    2_django_docker_with_postgresql-db-1   | running bootstrap script ... ok
+    2_django_docker_with_postgresql-db-1   | performing post-bootstrap initialization ... ok
+    2_django_docker_with_postgresql-web-1  | Watching for file changes with StatReloader
+    2_django_docker_with_postgresql-web-1  | Performing system checks...
+    2_django_docker_with_postgresql-web-1  | 
+    2_django_docker_with_postgresql-web-1  | System check identified no issues (0 silenced).
+    2_django_docker_with_postgresql-web-1  | Exception in thread django-main-thread:
+    2_django_docker_with_postgresql-web-1  | Traceback (most recent call last):
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 230, in ensure_connection
+    2_django_docker_with_postgresql-web-1  |     self.connect()
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 25, in inner
+    2_django_docker_with_postgresql-web-1  |     return func(*args, **kwargs)
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 211, in connect
+    2_django_docker_with_postgresql-web-1  |     self.connection = self.get_new_connection(conn_params)
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 25, in inner
+    2_django_docker_with_postgresql-web-1  |     return func(*args, **kwargs)
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 199, in get_new_connection
+    2_django_docker_with_postgresql-web-1  |     connection = Database.connect(**conn_params)
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    2_django_docker_with_postgresql-web-1  |     conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+    2_django_docker_with_postgresql-web-1  | psycopg2.OperationalError: connection to server at "db" (172.20.0.2), port 5432 failed: Connection refused
+    2_django_docker_with_postgresql-web-1  |        Is the server running on that host and accepting TCP/IP connections?
+    2_django_docker_with_postgresql-web-1  | 
+    2_django_docker_with_postgresql-web-1  | 
+    2_django_docker_with_postgresql-web-1  | The above exception was the direct cause of the following exception:
+    2_django_docker_with_postgresql-web-1  | 
+    2_django_docker_with_postgresql-web-1  | Traceback (most recent call last):
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/threading.py", line 980, in _bootstrap_inner
+    2_django_docker_with_postgresql-web-1  |     self.run()
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/threading.py", line 917, in run
+    2_django_docker_with_postgresql-web-1  |     self._target(*self._args, **self._kwargs)
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    2_django_docker_with_postgresql-web-1  |     fn(*args, **kwargs)
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/core/management/commands/runserver.py", line 127, in inner_run
+    2_django_docker_with_postgresql-web-1  |     self.check_migrations()
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/core/management/base.py", line 505, in check_migrations
+    2_django_docker_with_postgresql-web-1  |     executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    2_django_docker_with_postgresql-web-1  |     self.loader = MigrationLoader(self.connection)
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/migrations/loader.py", line 53, in __init__
+    2_django_docker_with_postgresql-web-1  |     self.build_graph()
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/migrations/loader.py", line 223, in build_graph
+    2_django_docker_with_postgresql-web-1  |     self.applied_migrations = recorder.applied_migrations()
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/migrations/recorder.py", line 77, in applied_migrations
+    2_django_docker_with_postgresql-web-1  |     if self.has_table():
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/migrations/recorder.py", line 55, in has_table
+    2_django_docker_with_postgresql-web-1  |     with self.connection.cursor() as cursor:
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 25, in inner
+    2_django_docker_with_postgresql-web-1  |     return func(*args, **kwargs)
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in cursor
+    2_django_docker_with_postgresql-web-1  |     return self._cursor()
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 246, in _cursor
+    2_django_docker_with_postgresql-web-1  |     self.ensure_connection()
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 25, in inner
+    2_django_docker_with_postgresql-web-1  |     return func(*args, **kwargs)
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 230, in ensure_connection
+    2_django_docker_with_postgresql-web-1  |     self.connect()
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/utils.py", line 90, in __exit__
+    2_django_docker_with_postgresql-web-1  |     raise dj_exc_value.with_traceback(traceback) from exc_value
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 230, in ensure_connection
+    2_django_docker_with_postgresql-web-1  |     self.connect()
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 25, in inner
+    2_django_docker_with_postgresql-web-1  |     return func(*args, **kwargs)
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 211, in connect
+    2_django_docker_with_postgresql-web-1  |     self.connection = self.get_new_connection(conn_params)
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 25, in inner
+    2_django_docker_with_postgresql-web-1  |     return func(*args, **kwargs)
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 199, in get_new_connection
+    2_django_docker_with_postgresql-web-1  |     connection = Database.connect(**conn_params)
+    2_django_docker_with_postgresql-web-1  |   File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    2_django_docker_with_postgresql-web-1  |     conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+    2_django_docker_with_postgresql-web-1  | django.db.utils.OperationalError: connection to server at "db" (172.20.0.2), port 5432 failed: Connection refused
+    2_django_docker_with_postgresql-web-1  |        Is the server running on that host and accepting TCP/IP connections?
+    2_django_docker_with_postgresql-web-1  | 
+    2_django_docker_with_postgresql-db-1   | initdb: warning: enabling "trust" authentication for local connections
+    2_django_docker_with_postgresql-db-1   | You can change this by editing pg_hba.conf or using the option -A, or
+    2_django_docker_with_postgresql-db-1   | --auth-local and --auth-host, the next time you run initdb.
+    2_django_docker_with_postgresql-db-1   | syncing data to disk ... ok
+    2_django_docker_with_postgresql-db-1   | 
+    2_django_docker_with_postgresql-db-1   | 
+    2_django_docker_with_postgresql-db-1   | Success. You can now start the database server using:
+    2_django_docker_with_postgresql-db-1   | 
+    2_django_docker_with_postgresql-db-1   |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+    2_django_docker_with_postgresql-db-1   | 
+    2_django_docker_with_postgresql-db-1   | waiting for server to start....2023-12-26 10:39:51.094 UTC [49] LOG:  starting PostgreSQL 14.10 (Debian 14.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+    2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.101 UTC [49] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+    2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.127 UTC [50] LOG:  database system was shut down at 2023-12-26 10:39:49 UTC
+    2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.138 UTC [49] LOG:  database system is ready to accept connections
+    2_django_docker_with_postgresql-db-1   |  done
+    2_django_docker_with_postgresql-db-1   | server started
+    2_django_docker_with_postgresql-db-1   | 
+    2_django_docker_with_postgresql-db-1   | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+    2_django_docker_with_postgresql-db-1   | 
+    2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.207 UTC [49] LOG:  received fast shutdown request
+    2_django_docker_with_postgresql-db-1   | waiting for server to shut down....2023-12-26 10:39:51.214 UTC [49] LOG:  aborting any active transactions
+    2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.216 UTC [49] LOG:  background worker "logical replication launcher" (PID 56) exited with exit code 1
+    2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.216 UTC [51] LOG:  shutting down
+    2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.259 UTC [49] LOG:  database system is shut down
+    2_django_docker_with_postgresql-db-1   |  done
+    2_django_docker_with_postgresql-db-1   | server stopped
+    2_django_docker_with_postgresql-db-1   | 
+    2_django_docker_with_postgresql-db-1   | PostgreSQL init process complete; ready for start up.
+    2_django_docker_with_postgresql-db-1   | 
+    2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.346 UTC [1] LOG:  starting PostgreSQL 14.10 (Debian 14.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+    2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.346 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+    2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.346 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+    2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.357 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+    2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.371 UTC [62] LOG:  database system was shut down at 2023-12-26 10:39:51 UTC
+    2_django_docker_with_postgresql-db-1   | 2023-12-26 10:39:51.382 UTC [1] LOG:  database system is ready to accept connections
+
+===================================================================
+2- Write in Terminal for checking image
+docker images
+
+Output:
+    REPOSITORY                            TAG       IMAGE ID       CREATED              SIZE
+    2_django_docker_with_postgresql-web   latest    e7eeef5a2597   About a minute ago   1.04GB
+
+
+
+===================================================================
+3- Install this Extensions from .vscode/extensions.json
+{
+    "recommendations": [
+        "beardedbear.beardedicons",
+        "beardedbear.beardedtheme",
+        "ms-python.black-formatter",
+        "streetsidesoftware.code-spell-checker",
+        "ms-azuretools.vscode-docker",
+        "editorconfig.editorconfig",
+        "mongodb.mongodb-vscode",
+        "ms-python.python",
+        "davidanson.vscode-markdownlint"
+    ]
+} 
+
+
+===================================================================
+4-
+
+===================================================================
+5-
+===================================================================
+6-
+===================================================================
+7-
+===================================================================
+8-
+===================================================================
+9-
+===================================================================
+10-
+===================================================================
+11-
+===================================================================
+12-
+===================================================================
+13-
+===================================================================
+14-
+===================================================================
+15-
+===================================================================
+16-
+===================================================================
+17-
+===================================================================
+18-
+===================================================================
+
+
+
