@@ -425,13 +425,36 @@ Output:
       Applying admin.0003_logentry_add_action_flag_choices... OK
       Applying sessions.0001_initial... OK
 
-      
+
 ===================================================================
-25-
+25- Write in Terminal, Thank create simple username and password for development mode. I use user=sina pass=123
+docker compose exec web python manage.py createsuperuser
+
+Ouput:
+    Username:
+    Email address: 
+    Password: 
+    Password (again): 
+    This password is too short. It must contain at least 8 characters.
+    This password is too common.
+    This password is entirely numeric.
+    Bypass password validation and create user anyway? [y/N]: y
+    Superuser created successfully.
+
+
+
 ===================================================================
-26- 
+26- Write in Terminal (If are in Iran run VPN!)
+docker compose up
+
+
+
 ===================================================================
-21- 
+21- check this link, will be shows 
+http://127.0.0.1:8000/admin/login/?next=/admin/
+
+
+
 ===================================================================
 22- 
 ===================================================================
@@ -444,9 +467,5 @@ Output:
 26- 
 ===================================================================
 27- 
-
-
-Git push in Terminal Commit message:
-./U.sh
 
 
