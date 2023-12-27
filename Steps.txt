@@ -505,17 +505,20 @@ urlpatterns = [
 35- import internal views.py into pages/urls.py
 from . import views
 
-
 ===================================================================
 36- Check these links and should be shows you wrote in home.html and aboutus.html
 http://127.0.0.1:8000/
 http://127.0.0.1:8000/aboutus
 
 ===================================================================
-37-
+37- add this path to config/urls.py > urlpatterns
+path('accounts/', include('django.contrib.auth.urls')),
+path('accounts/', include('accounts.urls'))
 
 ===================================================================
-38-
+38- Create urls.py in accounts directory
+urls.py
+
 ===================================================================
 39-
 ===================================================================
