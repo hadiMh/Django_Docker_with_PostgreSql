@@ -523,8 +523,14 @@ urls.py
 39- import this in accounts/urls.py
 from django.urls import path
 
+from . import views
+
 ===================================================================
-40-
+40- add urlpatterns in accounts/urls.py
+urlpatterns = [
+    path('signup/', views.SignUpView.as_view(), name='signup'),
+]
+
 ===================================================================
 41-
 ===================================================================
