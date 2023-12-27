@@ -532,9 +532,20 @@ urlpatterns = [
 ]
 
 ===================================================================
-41-
+41- import this in accounts/views.py
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
+
+from .forms import CustomUserCreationForm
+
 ===================================================================
-42-
+42- create new class for handle view in accounts/views.py
+class SignUpView(CreateView):
+    form_class = CustomUserCreationForm
+    template_name = 'registration/signup.html'
+    success_url = reverse_lazy('login')
+
+    
 ===================================================================
 43-
 ===================================================================
