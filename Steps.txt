@@ -552,11 +552,24 @@ registration/signup.html
 
 ===================================================================
 44-add this in templates/registration/signup.html
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Login" >
+</form>
 
 ===================================================================
-45-
+45- Create login.html in templates/registration directory
+login.html
+
 ===================================================================
-46-
+46- add this in templates/registration/login.html
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Login" >
+</form>
+
 ===================================================================
 47-
 ===================================================================
