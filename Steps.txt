@@ -578,11 +578,23 @@ http://127.0.0.1:8000/accounts/signup/
 http://127.0.0.1:8000/accounts/login/
 
 ===================================================================
-48- 
+48- add these in enf of config/settings.py
+# for user , Redirect to another url
+LOGIN_REDIRECT_URL =  'home'
+LOGOUT_REDIRECT_URL = 'home'
+
+
 ===================================================================
-49-
+49- restart server by stop docker compose and retype thi command in Terminal
+docker compose up
+
 ===================================================================
-50-
+50- Check these links after signup and logout 
+http://127.0.0.1:8000/accounts/login/
+http://127.0.0.1:8000/accounts/logout/
+
+Result should be > go to home page 
+
 ===================================================================
 51-
 ===================================================================
