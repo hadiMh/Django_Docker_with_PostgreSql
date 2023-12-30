@@ -596,9 +596,35 @@ http://127.0.0.1:8000/accounts/logout/
 Result should be > go to home page 
 
 ===================================================================
-51-
+51- first be sure docker compose in run by this in Terminal
+docker compose up
+
 ===================================================================
-52-
+52- write this in Terminal
+docker compose exec web pip install django-crispy-forms
+
+Output will be like this:
+    Collecting django-crispy-forms
+      WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7f09d0eaf670>, 'Connection to files.pythonhosted.org timed out. (connect timeout=15)')': /packages/58/b4/0fc9eed10828d538b0706e64ec3b8c32e42539ba9c6245d17ad4a3873163/django_crispy_forms-2.1-py3-none-any.whl
+      Downloading django_crispy_forms-2.1-py3-none-any.whl (31 kB)
+    Collecting django>=4.2
+      Downloading Django-4.2.8-py3-none-any.whl (8.0 MB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.0/8.0 MB 278.9 kB/s eta 0:00:00
+    Collecting asgiref<4,>=3.6.0
+      Downloading asgiref-3.7.2-py3-none-any.whl (24 kB)
+    Requirement already satisfied: sqlparse>=0.3.1 in /usr/local/lib/python3.9/site-packages (from django>=4.2->django-crispy-forms) (0.4.2)
+    Collecting typing-extensions>=4
+      Downloading typing_extensions-4.9.0-py3-none-any.whl (32 kB)
+    Installing collected packages: typing-extensions, asgiref, django, django-crispy-forms
+      Attempting uninstall: asgiref
+        Found existing installation: asgiref 3.5.0
+        Uninstalling asgiref-3.5.0:
+          Successfully uninstalled asgiref-3.5.0
+      Attempting uninstall: django
+        Found existing installation: Django 4.0.2
+        Uninstalling Django-4.0.2:
+          Successfully uninstalled Django-4.0.2
+
 ===================================================================
 53-
 ===================================================================
