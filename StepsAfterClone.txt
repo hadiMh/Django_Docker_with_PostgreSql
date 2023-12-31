@@ -1,0 +1,27 @@
+1- in Terminal
+docker-compose up --build
+================================================
+2- in Terminal
+Ctrl + C key
+================================================
+3- in Terminal
+docker start 2_django_haji_web_1 2_django_haji_db_1 
+OR
+docker start web_Name dataBase_Name
+================================================
+4- in Terminal 
+docker-compose exec web python manage.py makemigrations
+================================================
+5- in Terminal 
+docker-compose exec web python manage.py migrate
+================================================
+6- in Terminal 
+docker-compose up --build
+================================================
+7- in another Terminal 
+docker-compose exec web python manage.py createsuperuser
+================================================
+8- in browser 
+http://127.0.0.1:8000/admin/login/?next=/admin/
+
+Output, it must be implemented correctly
