@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block page_title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{% static 'img/icon.png' %}">
+
+    <!-- ************************* CSS Files ************************* -->
+
+    <link rel="stylesheet" href="{% static 'css/_base.css' %}">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+
+    <!-- style css -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+<body dir='rtl'>
+
+<!-- Header Start -->
+    <header class="header">
+        <div class="header-inner fixed-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-9 col-lg-8 col-5 col-xs-0 col-none col-sm-block p-0">
+                        <nav class="main-navigation">
+                            <div class="site-branding" style="margin-right: 30px;">
+                                <a href="index.html" class="logo">
+                                    <figure class="logo--normal d-none d-sm-block">
+                                        <img class="px-5" src="assets/img/codingyar_logo.png" style="max-height: 50px; margin-bottom: -15px;" alt="Logo">
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="mainmenu-nav d-none d-lg-block w-100 pr-3">
+                                <ul class="mainmenu d-lg-flex jusity-content-end jusity-content-lg-start pt-4">
+                                    <li class="mainmenu__item menu-item-has-children active">
+                                        <a href="index.html" class="mainmenu__link">
+                                            <span class="mm-text">خانه</span>
+                                        </a>
+                                    </li>
+                                    <li class="mainmenu__item menu-item-has-children">
+                                        <a href="Blog.html" class="mainmenu__link">
+                                            <span class="mm-text">وبلاگ</span>
+                                        </a>
+                                    </li>
+                                    <li class="mainmenu__item menu-item-has-children">
+                                        <a href="#" class="mainmenu__link">
+                                            <span class="mm-text">صفحات</span>
+                                        </a>
+                                        </li>
+                                    <li class="mainmenu__item">
+                                        <a href="contact-us.html" class="mainmenu__link">
+                                            <span class="mm-text">تماس با ما</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-sm-7 col-12 p-0">
+                        <ul class="header-toolbar">
+                            <li class="header-toolbar__item">
+                                <a href="wishlist.html" class="header-toolbar__btn mx-4">
+                                    <i class="flaticon flaticon-like"></i>
+                                </a>
+                            </li>
+                            <li class="header-toolbar__item mini-cart-item">
+                                <a href="#miniCart" class="header-toolbar__btn toolbar-btn mini-cart-btn">
+                                    <i class="flaticon flaticon-shopping-cart"></i>
+                                    <sup class="mini-cart-count">2</sup>
+                                </a>
+                            </li>
+                            <li class="header-toolbar__item user-info">
+                                <a href="my-account.html" class="header-toolbar__btn">
+                                    <i class="flaticon flaticon-user"></i>
+                                </a>
+                                <ul class="user-info-menu">
+                                    <li>
+                                        <a class="text-right" href="my-account.html">حساب کاربری</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-right" href="cart.html">سبد خرید</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-right" href="wishlist.html">علاقه مندی ها</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-right" href="order-tracking.html">تاریخچه سفارشات</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="header-toolbar__item">
+                                <a href="#searchForm" class="header-toolbar__btn toolbar-btn">
+                                    <i class="flaticon flaticon-search"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+<!-- Header End -->
+
+    
+    {% block content %}
+    {% endblock %}
+
+    <!-- jQuery JS -->
+    <script src="assets/js/vendor.js"></script>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>
