@@ -1,0 +1,209 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<!-- Main Wrapper Start -->
+<div class="wrapper">
+    
+    <!-- Main Content Wrapper Start -->
+    <div  class="main-content-wrapper container-fluid">
+        <div class="shop-page-wrapper shop-fullwidth">
+            <div class="container">
+                <div class="row mb--50">
+                    <div class="col-12">
+                        <div class="shop-toolbar">
+                            <div class="container row align-items-center">
+                                <div class="col-lg-12 mb-md--50 mb-xs--10">
+                                    <div class="shop-toolbar__left d-flex align-items-sm-center align-items-start flex-sm-row flex-column">
+                                        <p class="product-pages">نمایش ۱-۲۰ از ۴۹</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid shop-products">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tab-content" id="product-tab-content">
+                            <div class="tab-pane fade show active" id="nav-all">
+                                <div class="row xxl-block-grid-6 grid-space-20">
+                                    {% for product in products %}
+                                        <div class="col-xl-3 col-md-4 col-sm-6 mb--50">
+                                            <div class="ShoppingYar-product">
+                                                <div class="product-inner">
+                                                    <figure class="product-image">
+                                                        <a href="product-details.html">
+                                                            <img src="https://dkstatics-public.digikala.com/digikala-products/15d774761e234a15c1c559ac540963baad9e229f_1631704695.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90" alt="Products">
+                                                        </a>
+                                                        <div class="ShoppingYar-product-action">
+                                                            <div class="product-action d-flex">
+                                                                <a href="wishlist.html" class="action-btn">
+                                                                    <i class="flaticon flaticon-like"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <span class="product-badge">تخفیف ویژه</span>
+                                                    </figure>
+                                                    <div class="product-info">
+                                                        <h3 class="product-title ">
+                                                            <a href="product-details.html">{{ product.title }}</a>
+                                                        </h3>
+                                                        <div class="product-price-wrapper mb--30">
+                                                            <span class="money text-success">{{ product.price }} تومان</span>
+                                                            <span class="money-separator">-</span>
+                                                            <span class="old-price text-danger">
+                                                                <span class="money text-danger">۸۰,۰۰۰ تومان</span>
+                                                            </span>
+                                                        </div>
+                                                        <a href="cart.html" class="btn btn-small btn-bg-sand btn-color-dark px-3">اضافه کردن به سبد خرید</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                        
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="pagination-wrap mt--35 mt-md--25 pb-5">
+                            <ul class="pagination">
+                                <li><a href="#" class="next page-number"><i class="fa fa-angle-double-right"></i></a></li>
+                                <li><span class="current page-number">1</span></li>
+                                <li><a href="#" class="page-number">2</a></li>
+                                <li><a href="#" class="page-number">3</a></li>
+                                <li><a href="#" class="prev page-number"><i class="fa fa-angle-double-left"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content Wrapper Start -->
+
+    <!-- Footer Start-->
+    <footer class="footer">
+        <div class="footer-top bg-color ptb--50" data-bg-color="#f6f6f6">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 text-center">
+                        <div class="footer-widget mb--50">
+                            <div class="textwidget">
+                                <img src="assets/img/codingyar_logo.png" alt="Logo">
+                            </div>
+                        </div>
+                        <div class="footer-widget mb--50 pb--1">
+                            <ul class="footer-menu">
+                                <li><a href="">درباره ما</a></li>
+                                <li><a href="">قوانین و مقررات</a></li>
+                                <li><a href="">تماس با ما</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-widget">
+                            Codingyar.com © | all rights reserved
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End-->
+
+    <!-- Search form Popup Start -->
+    <div class="searchform__popup" id="searchForm">
+        <a href="#" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
+        <div class="searchform__body">
+            <p>در باکس زیر عبارت خود را وارد کنید</p>
+            <form class="searchform">
+                <input type="text" name="popup-search" id="popup-search" class="searchform__input" placeholder="جستجو در بین محصولات...">
+                <button type="submit" class="searchform__submit"><i class="flaticon flaticon-magnifying-glass-icon"></i></button>
+            </form>
+        </div>
+    </div>
+    <!-- Search form Popup End -->
+
+    <!-- Mini Cart Start -->
+    <aside class="mini-cart" id="miniCart">
+        <div class="mini-cart-wrapper">
+            <a href="" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
+            <div class="mini-cart-inner">
+                <h3 class="mini-cart__heading mb--40 mb-lg--30 text-right">سبد خرید</h3>
+                <div class="mini-cart__content">
+                    <ul class="mini-cart__list text-right">
+                        <li class="mini-cart__product d-flex justify-content-between">
+                            <div class="mini-cart__product__image">
+                                <a href="#">
+                                    <img src="assets/img/products/prod-1-100x100.jpg" alt="products">
+                                </a>
+                            </div>
+                            <div class="mini-cart__product__content pt-2">
+                                <span class="mini-cart__product__title d-flex flex-row justify-content-between">
+                                    <a href="#"> محصول سماره یک </a>
+                                    <a href="#" class="">
+                                        &#10060;
+                                    </a>
+                                </span>
+                                <span class="mini-cart__product__quantity">
+                                    <span>۴۹,۰۰۰ تومان</span> &#215; <span>۱</span>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="mini-cart__product d-flex justify-content-between">
+                            <div class="mini-cart__product__image">
+                                <a href="#">
+                                    <img src="assets/img/products/prod-1-100x100.jpg" alt="products">
+                                </a>
+                            </div>
+                            <div class="mini-cart__product__content pt-2">
+                                <span class="mini-cart__product__title d-flex flex-row justify-content-between">
+                                    <a href="#"> محصول سماره یک </a>
+                                    <a href="#" class="">
+                                        &#10060;
+                                    </a>
+                                </span>
+                                <span class="mini-cart__product__quantity">
+                                    <span>۴۹,۰۰۰ تومان</span> &#215; <span>۱</span>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="mini-cart__product d-flex justify-content-between">
+                            <div class="mini-cart__product__image">
+                                <a href="#">
+                                    <img src="assets/img/products/prod-1-100x100.jpg" alt="products">
+                                </a>
+                            </div>
+                            <div class="mini-cart__product__content pt-2">
+                                <span class="mini-cart__product__title d-flex flex-row justify-content-between">
+                                    <a href="#"> محصول سماره یک </a>
+                                    <a href="#" class="">
+                                        &#10060;
+                                    </a>
+                                </span>
+                                <span class="mini-cart__product__quantity">
+                                    <span>۴۹,۰۰۰ تومان</span> &#215; <span>۱</span>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mini-cart__total">
+                        <span>جمع کل</span>
+                        <span class="ammount">۱۴۸,۰۰۰ تومان</span>
+                    </div>
+                    <div class="mini-cart__buttons">
+                        <a href="cart.html" class="btn btn-fullwidth btn-bg-sand mb--20">مشاهده سبد خرید</a>
+                        <a href="checkout.html" class="btn btn-fullwidth btn-bg-sand">پرداخت</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- Mini Cart End -->
+    <!-- Global Overlay Start -->
+    <div class="ShoppingYar-global-overlay"></div>
+    <!-- Global Overlay End -->
+</div>
+<!-- Main Wrapper End -->
+    
+{% endblock %}
+
